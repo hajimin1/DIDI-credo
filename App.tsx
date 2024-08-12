@@ -55,7 +55,7 @@ agent
 
 function App(): React.JSX.Element {
   const {hasPermission, requestPermission} = useCameraPermission();
-  const device = useCameraDevice('back');
+  const device = useCameraDevice('front');
   const codeScanner = useCodeScanner({
     codeTypes: ['qr', 'ean-13'],
     onCodeScanned: codes => {
