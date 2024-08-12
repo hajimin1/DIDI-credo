@@ -10,9 +10,15 @@ import {StyleSheet, Text, useColorScheme} from 'react-native';
 import type {InitConfig} from '@credo-ts/core';
 import {Agent} from '@credo-ts/core';
 import {agentDependencies} from '@credo-ts/react-native';
-import { HttpOutboundTransport, WsOutboundTransport } from '@credo-ts/core';
+import {HttpOutboundTransport, WsOutboundTransport} from '@credo-ts/core';
 import {AskarModule} from '@credo-ts/askar';
 import {ariesAskar} from '@hyperledger/aries-askar-react-native';
+import {
+  Camera,
+  useCameraDevice,
+  useCameraPermission,
+  useCodeScanner,
+} from 'react-native-vision-camera';
 
 const config: InitConfig = {
   label: 'docs-agent-react-native',
@@ -48,7 +54,21 @@ agent
   });
 
 function App(): React.JSX.Element {
-  return <Text>hello</Text>;
+  const {hasPermission, requestPermission} = useCameraPermission();
+  const device = useCameraDevice('back');
+  const codeScanner = useCodeScanner({
+    codeTypes: ['qr', 'ean-13'],
+    onCodeScanned: codes => {
+      console.log(`Scanned ${codes.length} codes!`);
+    },
+  });
+
+  requestPermission();
+  if (!hasPermission) return <Text>No Permission</Text>;
+  if (device == null) return <Text>No Camera</Text>;
+  return (
+    <Camera style={StyleSheet.absoluteFill} codeScanner={codeScanner} device={device} isActive={true} />
+  );
 }
 
 const styles = StyleSheet.create({
