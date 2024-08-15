@@ -6,15 +6,13 @@
  */
 
 import React from 'react';
-import {Button, StyleSheet, Text, useColorScheme} from 'react-native';
 import type {InitConfig} from '@credo-ts/core';
 import {Agent} from '@credo-ts/core';
 import {agentDependencies} from '@credo-ts/react-native';
 import {HttpOutboundTransport, WsOutboundTransport} from '@credo-ts/core';
 import {AskarModule} from '@credo-ts/askar';
-import { ariesAskar } from '@hyperledger/aries-askar-react-native';
-import QRCamera from './components/QRCamera'
-
+import {ariesAskar} from '@hyperledger/aries-askar-react-native';
+import QRCamera from './components/QRCamera';
 
 const config: InitConfig = {
   label: 'docs-agent-react-native',
@@ -50,28 +48,7 @@ agent
   });
 
 function App(): React.JSX.Element {
-  return (
-      <QRCamera />
-  );
+  return <QRCamera />;
 }
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;

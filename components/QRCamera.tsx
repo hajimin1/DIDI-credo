@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, TouchableOpacity, useColorScheme, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {Appbar, Button} from 'react-native-paper';
 import {
   Camera,
   useCameraDevice,
@@ -26,21 +27,24 @@ export default function QRCamera() {
   if (device == null) return <Text>No Camera </Text>;
 
   const cameraModule = (
-    <Camera
-      style={StyleSheet.absoluteFill}
-      codeScanner={codeScanner}
-      device={device}
-      isActive={true}
-    />
+    <>
+      <Camera
+        style={StyleSheet.absoluteFill}
+        codeScanner={codeScanner}
+        device={device}
+        isActive={true}
+      />
+      <Appbar.BackAction onPress={handleQrScanner}/>
+    </>
   );
   return (
     <>
       {onQrScanner ? (
         cameraModule
       ) : (
-        <TouchableOpacity style={styles.qrBtn} onPress={handleQrScanner}>
-          <Text>QR</Text>
-        </TouchableOpacity>
+        <Button icon="qrcode" onPress={handleQrScanner}>
+          QR
+        </Button>
       )}
     </>
   );
@@ -48,13 +52,16 @@ export default function QRCamera() {
 
 const styles = StyleSheet.create({
   qrBtn: {
-    backgroundColor: '#3498db', // 버튼 배경색상 추가
+    backgroundColor: '#FFFFFF', // 버튼 배경색상 추가
     width: 100,
     height: 100,
     borderRadius: 100,
     borderWidth: 6,
     borderColor: '#3498db',
     alignItems: 'center',
+  },
+  txt: {
+    color: '#000000',
   },
   sectionContainer: {
     marginTop: 32,
