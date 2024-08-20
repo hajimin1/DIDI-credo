@@ -5,14 +5,13 @@
  * @format
  */
 
-import React from 'react';
 import type {InitConfig} from '@credo-ts/core';
 import {Agent} from '@credo-ts/core';
 import {agentDependencies} from '@credo-ts/react-native';
 import {HttpOutboundTransport, WsOutboundTransport} from '@credo-ts/core';
 import {AskarModule} from '@credo-ts/askar';
 import {ariesAskar} from '@hyperledger/aries-askar-react-native';
-import QRCamera from './components/QRCamera';
+import NavigationBar from './components/NavigationBar';
 
 const config: InitConfig = {
   label: 'docs-agent-react-native',
@@ -48,7 +47,7 @@ agent
   });
 
 function App(): React.JSX.Element {
-  return <QRCamera />;
+  return <NavigationBar />;
 }
 
 export default App;
