@@ -10,6 +10,9 @@ const config = {
   resolver: {
     sourceExts: ['js', 'json', 'ts', 'tsx', 'cjs'],
   },
+  assets: [
+    './assets/fonts'
+  ]
 };
 
 module.exports = mergeConfig(getDefaultConfig(__dirname), config);
