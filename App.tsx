@@ -12,7 +12,8 @@ import {HttpOutboundTransport, WsOutboundTransport} from '@credo-ts/core';
 import {AskarModule} from '@credo-ts/askar';
 import {ariesAskar} from '@hyperledger/aries-askar-react-native';
 import NavigationBar from './components/NavigationBar';
-import {configureFonts, MD3LightTheme, PaperProvider} from 'react-native-paper';
+import { configureFonts, MD3LightTheme, PaperProvider, Text} from 'react-native-paper';
+
 
 const config: InitConfig = {
   label: 'docs-agent-react-native',
@@ -47,7 +48,6 @@ agent
     );
   });
 
-  
 
 function App(): React.JSX.Element {
   const fontConfig = {
@@ -64,6 +64,7 @@ function App(): React.JSX.Element {
       <NavigationBar />
     </PaperProvider>
   );
+  
 }
 
 export default App;
