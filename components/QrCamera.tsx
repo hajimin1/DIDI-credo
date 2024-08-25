@@ -1,4 +1,4 @@
-import {StyleSheet, View} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 import {Appbar, Text} from 'react-native-paper';
 import {
   Camera,
@@ -6,10 +6,11 @@ import {
   useCameraPermission,
   useCodeScanner,
 } from 'react-native-vision-camera';
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
-import Voting from './Voting';
+import VoteRoomData from "./VoteRoomData.json"
+import VoteRoomCell from './VoteRoomCell';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +31,10 @@ const QRScreen = ({navigation}: any) => {
 
   if (!hasPermission) return <Text>No Permission</Text>;
   if (device == null) return <Text>No Camera</Text>;
-  if (page === true) navigation.navigate('Vote');
+  if (page === true)
+    navigation.navigate('Vote', {
+      VoteRoomData
+    });
 
   return (
     <Camera
@@ -42,7 +46,8 @@ const QRScreen = ({navigation}: any) => {
   );
 };
 
-const VoteScreen = ({navigation}: any) => {
+const VoteScreen = ({navigation, route}: any) => {
+
   return (
     <>
       <Appbar.Header>
@@ -54,7 +59,8 @@ const VoteScreen = ({navigation}: any) => {
         <Appbar.Content title="Vote" />
       </Appbar.Header>
       <View>
-        <Text>voting</Text>
+        <Text>{route.params.VoteRoomData[0].voteRoomName}</Text>
+        <FlatList data={route.params.VoteRoomData} renderItem={VoteRoomCell} />
       </View>
     </>
   );
