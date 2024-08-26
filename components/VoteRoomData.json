@@ -1,32 +1,32 @@
 [
-    {
-        "voteRoomName": "2024년 대학교 총학생회 선거",
-        "id": "1",
-        "elector": "신짱구"
-    },
-    {
-        "voteRoomName": "2024년 대학교 총학생회 선거",
-        "id": "2",
-        "elector": "김철수"
-    },
-    {
-        "voteRoomName": "2024년 대학교 총학생회 선거",
-        "id": "3",
-        "elector": "한유리"
-    },
-    {
-        "voteRoomName": "2024년 대학교 총학생회 선거",
-        "id": "4",
-        "elector": "이훈이"
-    },
-    {
-        "voteRoomName": "2024년 대학교 총학생회 선거",
-        "id": "5",
-        "elector": "맹구"
-    },
-    {
-        "voteRoomName": "2024년 대학교 총학생회 선거",
-        "id": "6",
-        "elector": "한수지"
-    }
+  {
+    "voteRoomName": "2024년 대학교 총학생회 선거",
+    "id": "1",
+    "elector": "신짱구"
+  },
+  {
+    "voteRoomName": "2024년 대학교 총학생회 선거",
+    "id": "2",
+    "elector": "김철수"
+  },
+  {
+    "voteRoomName": "2024년 대학교 총학생회 선거",
+    "id": "3",
+    "elector": "한유리"
+  },
+  {
+    "voteRoomName": "2024년 대학교 총학생회 선거",
+    "id": "4",
+    "elector": "이훈이"
+  },
+  {
+    "voteRoomName": "2024년 대학교 총학생회 선거",
+    "id": "5",
+    "elector": "맹구"
+  },
+  {
+    "voteRoomName": "2024년 대학교 총학생회 선거",
+    "id": "6",
+    "elector": "한수지"
+  }
 ]

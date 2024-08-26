@@ -1,8 +1,16 @@
-import {useState} from 'react';
-import {BottomNavigation, Button, Text} from 'react-native-paper';
+import {createContext, useContext, useState} from 'react';
+import {BottomNavigation} from 'react-native-paper';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import Screen from './Screen';
 import Wallet from './Wallet';
+
+const BottomNavigationContext = createContext({
+  setIndex: (index: number) => {},
+});
+
+export function useBottomNavigation() {
+  return useContext(BottomNavigationContext);
+}
 
 export default function NavigationBar() {
   const QrRoute = () => <Screen />;
@@ -25,11 +33,13 @@ export default function NavigationBar() {
 
   return (
     <SafeAreaProvider>
-      <BottomNavigation
-        navigationState={{index, routes}}
-        onIndexChange={setIndex}
-        renderScene={renderScene}
-      />
+      <BottomNavigationContext.Provider value={{setIndex}}>
+        <BottomNavigation
+          navigationState={{index, routes}}
+          onIndexChange={setIndex}
+          renderScene={renderScene}
+        />
+      </BottomNavigationContext.Provider>
     </SafeAreaProvider>
   );
 }

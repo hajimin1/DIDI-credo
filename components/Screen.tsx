@@ -11,6 +11,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import VoteRoomData from './VoteRoomData.json';
 import VoteRoomCell from './VoteRoomCell';
+import Wallet from './Wallet';
 
 const Stack = createNativeStackNavigator();
 
@@ -58,24 +59,25 @@ const VoteScreen = ({navigation, route}: any) => {
         <Appbar.Content title="Vote" />
       </Appbar.Header>
       <View style={styles.container}>
-        <Text style={styles.title}>{route.params.VoteRoomData[0].voteRoomName}</Text>
-        <FlatList style={styles.item} data={route.params.VoteRoomData} renderItem={VoteRoomCell} />
+        <Text style={styles.title}>
+          {route.params.VoteRoomData[0].voteRoomName}
+        </Text>
+        <FlatList
+          style={styles.item}
+          data={route.params.VoteRoomData}
+          renderItem={({item}) => <VoteRoomCell item={item} />}
+        />
       </View>
     </>
   );
 };
 
-const WalletScreen = () => {
-  return <></>;
-}
-
-export default function QrCamera() {
+export default function Screen() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="QR" component={QRScreen} />
         <Stack.Screen name="Vote" component={VoteScreen} />
-        <Stack.Screen name="Wallet" component={WalletScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -84,15 +86,15 @@ export default function QrCamera() {
 const styles = StyleSheet.create({
   title: {
     fontSize: 20,
-    fontWeight: 200
+    fontWeight: 200,
   },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 40
+    padding: 40,
   },
   item: {
-    marginTop: 10
-  }
+    marginTop: 10,
+  },
 });
