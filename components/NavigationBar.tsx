@@ -1,11 +1,11 @@
 import {useState} from 'react';
 import {BottomNavigation, Button, Text} from 'react-native-paper';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import QrCamera from './QrCamera';
+import Screen from './Screen';
 import Wallet from './Wallet';
 
 export default function NavigationBar() {
-  const QrRoute = () => <QrCamera />;
+  const QrRoute = () => <Screen />;
   const WalletRoute = () => <Wallet />;
   const [index, setIndex] = useState(0);
   const [routes] = useState([

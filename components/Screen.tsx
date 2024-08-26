@@ -9,7 +9,7 @@ import {
 import {useState} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
-import VoteRoomData from "./VoteRoomData.json"
+import VoteRoomData from './VoteRoomData.json';
 import VoteRoomCell from './VoteRoomCell';
 
 const Stack = createNativeStackNavigator();
@@ -33,7 +33,7 @@ const QRScreen = ({navigation}: any) => {
   if (device == null) return <Text>No Camera</Text>;
   if (page === true)
     navigation.navigate('Vote', {
-      VoteRoomData
+      VoteRoomData,
     });
 
   return (
@@ -47,7 +47,6 @@ const QRScreen = ({navigation}: any) => {
 };
 
 const VoteScreen = ({navigation, route}: any) => {
-
   return (
     <>
       <Appbar.Header>
@@ -58,13 +57,17 @@ const VoteScreen = ({navigation, route}: any) => {
         />
         <Appbar.Content title="Vote" />
       </Appbar.Header>
-      <View>
-        <Text>{route.params.VoteRoomData[0].voteRoomName}</Text>
-        <FlatList data={route.params.VoteRoomData} renderItem={VoteRoomCell} />
+      <View style={styles.container}>
+        <Text style={styles.title}>{route.params.VoteRoomData[0].voteRoomName}</Text>
+        <FlatList style={styles.item} data={route.params.VoteRoomData} renderItem={VoteRoomCell} />
       </View>
     </>
   );
 };
+
+const WalletScreen = () => {
+  return <></>;
+}
 
 export default function QrCamera() {
   return (
@@ -72,7 +75,24 @@ export default function QrCamera() {
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="QR" component={QRScreen} />
         <Stack.Screen name="Vote" component={VoteScreen} />
+        <Stack.Screen name="Wallet" component={WalletScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 20,
+    fontWeight: 200
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 40
+  },
+  item: {
+    marginTop: 10
+  }
+});
