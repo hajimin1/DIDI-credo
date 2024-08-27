@@ -1,32 +1,33 @@
 [
   {
+    "voteRoomVC": 3759234,
+    "voteRoomId": 1,
     "voteRoomName": "2024년 대학교 총학생회 선거",
-    "id": "1",
-    "elector": "신짱구"
-  },
-  {
-    "voteRoomName": "2024년 대학교 총학생회 선거",
-    "id": "2",
-    "elector": "김철수"
-  },
-  {
-    "voteRoomName": "2024년 대학교 총학생회 선거",
-    "id": "3",
-    "elector": "한유리"
-  },
-  {
-    "voteRoomName": "2024년 대학교 총학생회 선거",
-    "id": "4",
-    "elector": "이훈이"
-  },
-  {
-    "voteRoomName": "2024년 대학교 총학생회 선거",
-    "id": "5",
-    "elector": "맹구"
-  },
-  {
-    "voteRoomName": "2024년 대학교 총학생회 선거",
-    "id": "6",
-    "elector": "한수지"
+    "candidates": [
+      {
+        "candidateId": 1,
+        "candidateName": "신짱구"
+      },
+      {
+        "candidateId": 2,
+        "candidateName": "김철수"
+      },
+      {
+        "candidateId": 3,
+        "candidateName": "한유리"
+      },
+      {
+        "candidateId": 4,
+        "candidateName": "이훈이"
+      },
+      {
+        "candidateId": 5,
+        "candidateName": "맹구"
+      },
+      {
+        "candidateId": 6,
+        "candidateName": "한수지"
+      }
+    ]
   }
 ]

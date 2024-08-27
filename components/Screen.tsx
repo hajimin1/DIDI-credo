@@ -6,12 +6,11 @@ import {
   useCameraPermission,
   useCodeScanner,
 } from 'react-native-vision-camera';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import VoteRoomData from './VoteRoomData.json';
 import VoteRoomCell from './VoteRoomCell';
-import Wallet from './Wallet';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,14 +27,31 @@ const QRScreen = ({navigation}: any) => {
     },
   });
 
-  requestPermission();
+  useEffect(() => {
+    requestPermission();
+  }, []);
+  
 
-  if (!hasPermission) return <Text>No Permission</Text>;
-  if (device == null) return <Text>No Camera</Text>;
-  if (page === true)
-    navigation.navigate('Vote', {
-      VoteRoomData,
-    });
+  if (!hasPermission)
+    return (
+      <View style={styles.nope}>
+        <Text>No Permission</Text>
+      </View>
+    );
+  if (device == null)
+    return (
+      <View style={styles.nope}>
+        <Text>No Camera</Text>
+      </View>
+    );
+
+  useEffect(() => {
+    if (page === true)
+      navigation.navigate('Vote', {
+        VoteRoomData,
+      });
+  }, [page, navigation])
+  
 
   return (
     <Camera
@@ -84,6 +100,11 @@ export default function Screen() {
 }
 
 const styles = StyleSheet.create({
+  nope: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   title: {
     fontSize: 20,
     fontWeight: 200,
