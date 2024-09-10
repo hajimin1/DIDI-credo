@@ -23,6 +23,7 @@ export default function NavigationBar() {
   const WalletRoute = () => <Wallet />;
   const [index, setIndex] = useState(0);
   const [voteRoomData, setVoteRoomData] = useState<{voteRoomVC: number, voteRoomId: number}[]>([]);
+  
   const [routes] = useState([
     {key: 'QR', title: 'QR', focusedIcon: 'qrcode'},
     {
@@ -38,12 +39,18 @@ export default function NavigationBar() {
     wallet: WalletRoute,
   });
 
+  const handleIndexChange = (newIndex: number) => {
+    if (index !== newIndex) {
+      setIndex(newIndex);
+    }
+  }
+
   return (
     <SafeAreaProvider>
       <BottomNavigationContext.Provider value={{setIndex, setVoteRoomData, voteRoomData}}>
         <BottomNavigation
           navigationState={{index, routes}}
-          onIndexChange={setIndex}
+          onIndexChange={handleIndexChange}
           renderScene={renderScene}
         />
       </BottomNavigationContext.Provider>

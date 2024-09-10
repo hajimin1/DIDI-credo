@@ -5,7 +5,6 @@ export default function WalletCell({item}: {item: any}) {
   console.log(item);
   return (
     <>
-      <View style={styles.container}></View>
       <Card style={styles.vcCard}>
         <Text>vote room VC: {item.voteRoomVC}</Text>
         <Text>vote room ID: {item.voteRoomId}</Text>
@@ -15,13 +14,12 @@ export default function WalletCell({item}: {item: any}) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: 20
-  },
+
   vcCard: {
     justifyContent: 'center',
-    marginHorizontal: 30,
+    marginHorizontal: 5,
     marginBottom: 10,
     padding: 20,
+    marginTop: 10,
   },
 });

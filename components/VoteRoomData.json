@@ -29,5 +29,28 @@
         "candidateName": "한수지"
       }
     ]
+  },
+  {
+    "voteRoomVC": 492250,
+    "voteRoomId": 2,
+    "voteRoomName": "2023년 중학교 총학생회 선거",
+    "candidates": [
+      {
+        "candidateId": 1,
+        "candidateName": "노진구"
+      },
+      {
+        "candidateId": 2,
+        "candidateName": "이슬이"
+      },
+      {
+        "candidateId": 3,
+        "candidateName": "퉁퉁이"
+      },
+      {
+        "candidateId": 4,
+        "candidateName": "비실이"
+      }
+    ]
   }
 ]

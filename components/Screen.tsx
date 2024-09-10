@@ -21,7 +21,7 @@ const QRScreen = ({navigation}: any) => {
   const codeScanner = useCodeScanner({
     codeTypes: ['qr', 'ean-13'],
     onCodeScanned: codes => {
-      console.log(`Scanned ${codes[0].value}`);
+      // console.log(`Scanned ${codes[0].value}`);
       setPage(false);
       codes[0].value !== null ? setPage(true) : null;
     },

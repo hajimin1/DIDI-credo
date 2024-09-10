@@ -12,8 +12,14 @@ import {HttpOutboundTransport, WsOutboundTransport} from '@credo-ts/core';
 import {AskarModule} from '@credo-ts/askar';
 import {ariesAskar} from '@hyperledger/aries-askar-react-native';
 import NavigationBar from './components/NavigationBar';
-import { configureFonts, MD3LightTheme, PaperProvider, Text} from 'react-native-paper';
-
+import {
+  configureFonts,
+  MD3LightTheme,
+  PaperProvider,
+  Text,
+} from 'react-native-paper';
+import {useEffect} from 'react';
+import SplashScreen from 'react-native-splash-screen';
 
 const config: InitConfig = {
   label: 'docs-agent-react-native',
@@ -48,23 +54,35 @@ agent
     );
   });
 
+const receiveInvitation = async (agent: Agent, invitationUrl: string) => {
+  const {outOfBandRecord} = await agent.oob.receiveInvitationFromUrl(
+    invitationUrl,
+  );
+
+  return outOfBandRecord;
+};
 
 function App(): React.JSX.Element {
   const fontConfig = {
-    fontFamily: 'NotoSans'
-  }
+    fontFamily: 'Inria Sans',
+  };
 
   const theme = {
     ...MD3LightTheme,
     fonts: configureFonts({config: fontConfig}),
-  }
-  
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      SplashScreen.hide();
+    }, 1000);
+  });
+
   return (
     <PaperProvider theme={theme}>
       <NavigationBar />
     </PaperProvider>
   );
-  
 }
 
 export default App;

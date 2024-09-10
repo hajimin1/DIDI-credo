@@ -8483,6 +8483,11 @@ react-native-securerandom@^0.1.1:
   dependencies:
     base64-js "*"
 
+react-native-splash-screen@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.npmjs.org/react-native-splash-screen/-/react-native-splash-screen-3.3.0.tgz"
+  integrity sha512-rGjt6HkoSXxMqH4SQUJ1gnPQlPJV8+J47+4yhgTIan4bVvAwJhEeJH7wWt9hXSdH4+VfwTS0GTaflj1Tw83IhA==
+
 react-native-vector-icons@*, react-native-vector-icons@^10.1.0:
   version "10.1.0"
   resolved "https://registry.npmjs.org/react-native-vector-icons/-/react-native-vector-icons-10.1.0.tgz"
@@ -8496,7 +8501,7 @@ react-native-vision-camera@^4.5.1:
   resolved "https://registry.npmjs.org/react-native-vision-camera/-/react-native-vision-camera-4.5.1.tgz"
   integrity sha512-ob7gfBYin4lG2zlzRr5y4rYJN3NCCyJotFX1z3ul8V0N2GwkCGh31cko6hF9DXG4VocSPVYKt+K5W0CWLp3y0g==
 
-react-native@*, "react-native@>= 0.66.0", react-native@>=0.56, react-native@>=0.71.4, react-native@0.74.5:
+react-native@*, "react-native@>= 0.66.0", react-native@>=0.56, react-native@>=0.57.0, react-native@>=0.71.4, react-native@0.74.5:
   version "0.74.5"
   resolved "https://registry.npmjs.org/react-native/-/react-native-0.74.5.tgz"
   integrity sha512-Bgg2WvxaGODukJMTZFTZBNMKVaROHLwSb8VAGEdrlvKwfb1hHg/3aXTUICYk7dwgAnb+INbGMwnF8yeAgIUmqw==
